@@ -14,6 +14,7 @@ IUSE=""
 RDEPEND="
     chromeos-base/chromeos-accelerometer-init
     chromeos-base/detachable-emulator
+    chromeos-base/acpi-patch-service
 "
 
 DEPEND="${RDEPEND}"
@@ -38,4 +39,7 @@ src_install() {
 
   exeinto /lib/udev
   doexe ${FILESDIR}/hardware-fix/reload_i2c.sh
+
+  insinto /usr/share/fydeos_acpi
+  doins ${FILESDIR}/acpi_patch/lid.aml
 }
