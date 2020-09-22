@@ -1,0 +1,7 @@
+ACTION!="add", KERNEL!="iio:device0", GOTO="surface_power_management_end"
+ATTR{name}=="accel_3d",ATTR{power/control}="on"
+DRIVERS=="hid_sensor_accel_3d",ATTR{power/control}="on"
+DRIVERS=="hid-sensor-hub",ATTR{power/control}="on"
+DRIVERS=="i2c_hid",ATTR{power/control}="on"
+
+LABEL="surface_power_management_end"
