@@ -33,16 +33,10 @@ src_install() {
   insinto /lib/udev/rules.d
   doins ${FILESDIR}/accelmeter/99-cros-ec-accel.rules
   doins ${FILESDIR}/tablet-mode/99-usb-keyboard-detect.rules
-#  doins ${FILESDIR}/hardware-fix/99-surface-cover-attached-init.rules
+  doins ${FILESDIR}/hardware-fix/99-surface-i2c-powermanage.rules
   
   insinto /usr/share/power_manager/board_specific
   doins ${FILESDIR}/powerd/*
-
-#  exeinto /lib/udev
-#  doexe ${FILESDIR}/hardware-fix/reload_i2c.sh
-
-#  exeinto /usr/sbin
-#  doexe ${FILESDIR}/reloadwifi.sh
 
   insinto /usr/share/fydeos_acpi
   doins ${FILESDIR}/acpi_patch/lid.aml
