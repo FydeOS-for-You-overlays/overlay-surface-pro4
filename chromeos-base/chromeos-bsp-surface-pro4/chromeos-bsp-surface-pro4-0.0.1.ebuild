@@ -13,8 +13,9 @@ IUSE=""
 
 RDEPEND="
     chromeos-base/chromeos-accelerometer-init
-    chromeos-base/detachable-emulator
     chromeos-base/acpi-patch-service
+    chromeos-base/detachable-emulator
+    chromeos-base/fydeos-power-daemon-go
 "
 
 DEPEND="${RDEPEND}"
@@ -26,20 +27,26 @@ src_install() {
   doins ${FILESDIR}/accelmeter/cros-ec-accel.conf
   doins ${FILESDIR}/tablet-mode/init-tablet-mode.conf
 
-  insinto /etc/modprobe.d
-  doins ${FILESDIR}/hardware-fix/mwifiex.conf
+#  insinto /etc/modprobe.d
+#  doins ${FILESDIR}/hardware-fix/mwifiex.conf
 
   insinto /lib/udev/rules.d
   doins ${FILESDIR}/accelmeter/99-cros-ec-accel.rules
   doins ${FILESDIR}/tablet-mode/99-usb-keyboard-detect.rules
-  doins ${FILESDIR}/hardware-fix/99-surface-cover-attached-init.rules
+#  doins ${FILESDIR}/hardware-fix/99-surface-cover-attached-init.rules
   
   insinto /usr/share/power_manager/board_specific
   doins ${FILESDIR}/powerd/*
 
-  exeinto /lib/udev
-  doexe ${FILESDIR}/hardware-fix/reload_i2c.sh
+#  exeinto /lib/udev
+#  doexe ${FILESDIR}/hardware-fix/reload_i2c.sh
+
+#  exeinto /usr/sbin
+#  doexe ${FILESDIR}/reloadwifi.sh
 
   insinto /usr/share/fydeos_acpi
   doins ${FILESDIR}/acpi_patch/lid.aml
+
+  insinto /etc/powerd/board
+  doins ${FILESDIR}/suspend/surface_pro4.conf
 }
