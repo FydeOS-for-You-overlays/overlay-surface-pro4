@@ -33,7 +33,7 @@ src_install() {
   insinto /lib/udev/rules.d
   doins ${FILESDIR}/accelmeter/99-cros-ec-accel.rules
   doins ${FILESDIR}/tablet-mode/99-usb-keyboard-detect.rules
-  doins ${FILESDIR}/hardware-fix/99-surface-i2c-powermanage.rules
+#  doins ${FILESDIR}/hardware-fix/99-surface-i2c-powermanage.rules
   
   insinto /usr/share/power_manager/board_specific
   doins ${FILESDIR}/powerd/*
@@ -42,5 +42,5 @@ src_install() {
   doins ${FILESDIR}/acpi_patch/lid.aml
 
   insinto /etc/powerd/board
-  doins ${FILESDIR}/suspend/surface_pro4.conf
+#  doins ${FILESDIR}/suspend/surface_pro4.conf
 }
